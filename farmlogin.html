@@ -7,14 +7,17 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-image : url('imqage.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%; 
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
     .login-container {
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -22,26 +25,26 @@
     }
     h2 {
       text-align: center;
-      color: #333;
+      color: #2F3C7E; /* Deep blue for the heading */
     }
     .form-group {
       margin-bottom: 15px;
     }
     label {
       display: block;
-      color: #555;
+      color: #F96167; /* Soft coral for labels */
     }
     input {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
-      border: 1px solid #ddd;
+      border: 1px solid #F96167;
       border-radius: 4px;
     }
     button {
       width: 100%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color: #F96167; /* Coral background for the button */
       color: #fff;
       border: none;
       border-radius: 4px;
@@ -49,7 +52,18 @@
       margin-top: 20px;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #276d36; /* Light yellow on hover */
+    }
+    p {
+      text-align: center;
+      color: #2F3C7E;
+    }
+    a {
+      color: #F96167;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -67,8 +81,9 @@
       <input type="password" id="password" name="password" required>
     </div>
     <button type="submit">Login</button>
-    <p>If not have an account? <a href="farmregister.html">Register</a></p>
+    <p>If you don't have an account? <a href="farmregister.html">Register</a></p>
   </form>
 </div>
+
 </body>
 </html>
