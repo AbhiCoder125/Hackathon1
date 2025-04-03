@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farmer Registration Form</title>
   <style>
-    
+    body {
+      font-family: Arial, sans-serif;
+      background-image : url('imagereg.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
     .container {
       width: 50%;
       margin: 50px auto;
@@ -74,18 +84,6 @@
       <input type="tel" id="phone" name="phone" required>
     </div>
     <div class="form-group">
-      <label for="state">State</label>
-      <input type="text" id="state" name="state" required>
-    </div>
-    <div class="form-group">
-      <label for="district">District</label>
-      <input type="text" id="district" name="district" required>
-    </div>
-    <div class="form-group">
-      <label for="farm_size">Farm Size (in acres)</label>
-      <input type="number" id="farm_size" name="farm_size" required>
-    </div>
-    <div class="form-group">
       <label for="password">Password</label>
       <input type="password" id="password" name="password" required>
       <div class="error" id="passwordError"></div>
@@ -127,6 +125,5 @@
     }
   });
 </script>
-
 </body>
 </html>
