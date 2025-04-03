@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Upload and Location Access</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 40%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="file"], button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: #e74c3c;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      margin-top: 8px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Image Upload and Location Access</h1>
+
+    <!-- Image Upload Section -->
+    <div class="form-group">
+      <label for="profile_image">Upload Profile Image:</label>
+      <input type="file" id="profile_image" name="profile_image" accept="image/*" required>
+    </div>
+
+    <!-- Location Access Section -->
+    <div class="form-group">
+      <button type="button" onclick="getLocation()">Get Location</button>
+      <div id="locationError" class="error"></div>
+    </div>
+  </div>
+
+  <script>
+    // Function to get the user's current location
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          document.getElementById('location').value = `Latitude: ${latitude}, Longitude: ${longitude}`;
+        }, function() {
+          document.getElementById('locationError').textContent = 'Unable to retrieve your location.';
+        });
+      } else {
+        document.getElementById('locationError').textContent = 'Geolocation is not supported by this browser.';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Registration Form</title>
+  <style>
+    /* General Body Styling */
+    body {
+      font-family: 'Arial', sans-serif;  /* Arial for all text */
+      background-image: url('imagereg.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container Styling */
+    .container {
+      width: 50%;
+      background-image: url('imagereg.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%; 
+      padding: 20px;
+    }
+
+    /* Heading Styling */
+    h1 {
+      font-family: 'Dancing Script', cursive;  /* Curly font for the header */
+      text-align: center;
+      color: #4CAF50; 
+      margin-bottom: 20px;
+      font-size: 36px;  /* Large font size for the header */
+    }
+
+    /* Label Styling */
+    label {
+      font-family: 'Dancing Script', cursive;  /* Curly font for labels */
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+      color: #2b7f8e;  /* Soft teal color for labels */
+      font-size: 1.2em;  /* Slightly larger font size for labels */
+      letter-spacing: 0.5px;
+    }
+
+    /* Input and Select Styling*/ 
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #8f411c;   
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 1em;  /* Standard font size for inputs */
+    }
+
+    /* Button Styling */
+    button {
+      width: 30%;
+      padding: 12px;
+      background-color: skyblue;
+      color: #0d5e1e;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-family: 'Dancing Script', cursive;  /* Font for button */
+    }
+
+    /* Button Hover Effect */
+    button:hover {
+      background-color: #78662b;
+    }
+
+    /* Error Message Styling */
+    .error {
+      color: #070505;
+      font-style: normal; 
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    /* Paragraph Styling */
+    p {
+      color: #4d345e;  /* Dfontark gray color */
+      font-family: 'Dancing Script', cursive;
+      font-size: 20px;
+      font-display: 10px;
+      text-align: center;
+    }
+
+    /* Link Styling */
+    a {
+      color: green; 
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+    }
+
+    /* Link Hover Styling */
+    a:hover {
+      text-decoration: underline; 
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Farmer Registration Form</h1>
+  <form id="registrationForm" action="/submit_registration" method="POST">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      <div class="error" id="passwordError"></div>
+    </div>
+    <div class="form-group">
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" id="confirm_password" name="confirm_password" required>
+      <div class="error" id="confirmPasswordError"></div>
+    </div>
+    <button type="submit">Register</button>
+    <p>Already have an account? <a href="farmlogin.html">Login</a></p>
+  </form>
+</div>
+
+<script>
+  document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    let valid = true;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+
+    // Clear previous error messages
+    document.getElementById('passwordError').textContent = '';
+    document.getElementById('confirmPasswordError').textContent = '';
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      valid = false;
+      document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+    }
+
+    // Check password strength (at least 8 characters)
+    if (password.length < 8) {
+      valid = false;
+      document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
+    }
+
+    if (!valid) {
+      event.preventDefault(); // Prevent form submission
+    }
+  });
+</script>
+
+</body>
+</html>
