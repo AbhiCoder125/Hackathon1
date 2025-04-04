@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import UserLogin
+from .models import User
 
 def login_view(request):
     if request.method == 'POST':
@@ -8,9 +8,9 @@ def login_view(request):
         password = request.POST.get('password')
         
         try:
-            user = UserLogin.objects.get(username=username, password=password)
+            user = User.objects.get(username=username, password=password)
             return render(request, 'login/success.html', {'user': user})
-        except UserLogin.DoesNotExist:
+        except User.DoesNotExist:
             error_message = "Invalid username or password."
             return render(request, 'Login/farmlogin.html', {'error_message': error_message})
     
