@@ -78,6 +78,15 @@
       background-color: #f9f9f9;
       color: #333;
     }
+
+    .location-display {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      color: #333;
+      border: 1px solid #ddd;
+    }
   </style>
 </head>
 <body>
@@ -96,6 +105,13 @@
       <button type="button" onclick="getLocation()">Get Location</button>
       <div id="locationError" class="error"></div>
     </div>
+
+    <!-- Location Display Section -->
+    <div id="locationDisplay" class="location-display" style="display: none;">
+      <h3>Location:</h3>
+      <p id="latitude"></p>
+      <p id="longitude"></p>
+    </div>
   </div>
 
   <script>
@@ -105,7 +121,13 @@
         navigator.geolocation.getCurrentPosition(function(position) {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
-          document.getElementById('location').value = `Latitude: ${latitude}, Longitude: ${longitude}`;
+
+          // Display the latitude and longitude
+          document.getElementById('latitude').textContent = `Latitude: ${latitude}`;
+          document.getElementById('longitude').textContent = `Longitude: ${longitude}`;
+
+          // Show the location display section
+          document.getElementById('locationDisplay').style.display = 'block';
         }, function() {
           document.getElementById('locationError').textContent = 'Unable to retrieve your location.';
         });
