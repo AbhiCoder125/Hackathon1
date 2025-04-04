@@ -14,6 +14,20 @@ def Registration_view(request):
                 username=username,
                 email=email,
                 password=password,
-        )
-        return render(request, 'login/success.html', {'user': user})    
+        )    
     return render(request, 'Login/farmregister.html')
+
+def login_view(request):
+    if request.method == 'GET':
+        username = request.GET.get('username')
+        password = request.GET.get('password')
+
+        try:
+            user = User.objects.get(username=username, password=password)
+        except User.DoesNotExist:
+            user = None
+            if user:
+                return render(request, 'Login/farmregister.html')
+            else:
+                return render(request, 'Login/login.html', {'error': 'Invalid username or password'})
+    
