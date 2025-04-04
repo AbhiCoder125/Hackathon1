@@ -6,73 +6,92 @@
   <title>Farmer Registration Form</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-image : url('imagereg.jpg');
+      font-family: 'Arial', sans-serif;  
+      background-image: url('imagereg.jpg');
       background-repeat: no-repeat;
       background-size: 100% 100%; 
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
     }
+
     .container {
       width: 50%;
-      margin: 50px auto;
-      background-color: #fff;
+      text-align: justify;
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
     h1 {
+      font-family: 'Dancing Script', cursive;  
       text-align: center;
-      color: #4CAF50; /* Change the heading color */
+      color: #4CAF50; 
+      margin-bottom: 20px;
+      font-size: 36px;  
     }
-    .form-group {
-      margin-bottom: 15px;
-    }
+
     label {
+      font-family: 'Dancing Script', cursive;  
       font-weight: bold;
       display: block;
       margin-top: 10px;
-      color: #2b7f8e; /* Change the label color */
+      color: #0b0c0c;  
+      font-size: 1.2em;  
+      letter-spacing: 0.5px;
     }
-    input, select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: 1px solid #163b67;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    button {
+
+    input {
       width: 100%;
       padding: 10px;
-      background-color: #4CAF50;
-      color: #fff;
+      margin-top: 5px;
+      border: 1px solid #8f411c;   
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 1em;
+      background-color: burlywood;  
+    }
+
+    button {
+      width: 30%;
+      padding: 12px;
+      background-color: skyblue;
+      color: #0d5e1e;
       border: none;
       border-radius: 4px;
       font-size: 16px;
       cursor: pointer;
       margin-top: 20px;
+      font-family: 'Dancing Script', cursive;  
     }
+
     button:hover {
-      background-color: #2b4b69;
+      background-color: #78662b;
     }
+
     .error {
-      color: #e74c3c; /* Change error text color to red */
+      color: #070505;
+      font-style: normal; 
       font-size: 0.9em;
       margin-top: 5px;
     }
+
     p {
-      color: #34495E; /* Change the color of the paragraph */
+      color: #0a070c; 
+      font-weight: 300; 
+      font-family: 'Dancing Script', cursive;
+      font-size: 20px;
+      font-display: 10px;
+      text-align: center;
     }
+
     a {
-      color: #4CAF50; /* Change the link color */
+      color: green; 
       text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
     }
+
     a:hover {
-      text-decoration: underline; /* Add underline on hover for the link */
+      text-decoration: underline; 
     }
   </style>
 </head>
@@ -88,6 +107,10 @@
     <div class="form-group">
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
@@ -131,5 +154,6 @@
     }
   });
 </script>
+
 </body>
 </html>
