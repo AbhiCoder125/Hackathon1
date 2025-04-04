@@ -5,136 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crop Determination and Prediction</title>
   <style>
+    /* General Body Style */
     body {
-      font-family: Arial, sans-serif;
-      background-image: url('mback.jpg');
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+        background-image: url(mback.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+       margin: 0;
+      color: #fff;
     }
 
+    /* Container Style */
     .container {
-      background-color: #0c9ba5;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 50%;
-      max-width: 500px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
     }
 
+    /* Heading Style */
     h1 {
-      text-align: center;
-      color: #e6eeea;
-      font-style: initial;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-
-    input[type="file"], input[type="text"], select, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #724caf;
-      color: #090808;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      background-color: #4577a0;
-    }
-
-    .error {
-      color: #e74c3c;
-      font-size: 0.9em;
-      margin-top: 5px;
-    }
-
-    .prediction-result {
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #6ea6be;
-      border-radius: 4px;
-      color: #f7f5f5;
-      border: 1px solid #ddd;
-      display: none;
-    }
-
-    .uploaded-image {
+      color: #f1f1f1;
+      font-size: 2.5rem;
       margin-bottom: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Label Style */
+    label {
+      font-weight: 500;
+      color: #0b0a0a;
       display: block;
-      max-width: 100%;
-      height: auto;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    /* Input Fields Style */
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 2px solid #00c6ff;
+      background-color: #a6b0b8;
+      color: #090909;
+      font-size: 1rem;
+      outline: none;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>Crop Determination and Prediction</h1>
+    <h1>Crop Status</h1>
 
-    <!-- Display the uploaded crop image -->
+    <!-- Input Fields for Crop Status -->
     <div class="form-group">
-      <h3>Uploaded Crop Image:</h3>
-      <img id="uploadedImage" class="uploaded-image" src="" alt="Crop Image">
+      <label for="cropname">Crop Name:</label>
+      <input type="text" id="cropname" name="cropname" required>
     </div>
 
-    <label for="cropname">Cropname</label>
-    <input type="text" id="cropname" name="cropname" required>
-
-    <!-- Get Prediction Button -->
     <div class="form-group">
-      <button type="button" onclick="getCropPrediction()">Get Crop Prediction</button>
+      <label for="crophealth">Crop Health Status:</label>
+      <input type="text" id="crophealth" name="crophealth" required>
     </div>
 
-    <!-- Prediction Result Section -->
-    <div id="predictionResult" class="prediction-result">
-      <h3>Prediction Result:</h3>
-      <p id="predictionText"></p>
+    <div class="form-group">
+      <label for="remedies">Remedies:</label>
+      <input type="text" id="remedies" name="remedies" required>
     </div>
 
   </div>
-
-  <script>
-    // Function to get the crop image from the URL parameter (Main Page)
-    window.onload = function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const cropImageUrl = urlParams.get('crop_image');
-      if (cropImageUrl) {
-        document.getElementById('uploadedImage').src = cropImageUrl;
-      }
-    };
-
-    // Function to get the crop prediction based on user input
-    function getCropPrediction() {
-      const predictionText = document.getElementById('predictionText');
-      const predictionResult = document.getElementById('predictionResult');
-
-      let prediction = "We could not determine the crop prediction. Please try again with valid parameters.";
-
-
-      // Add additional crop prediction logic here...
-
-      // Display the result
-      predictionText.textContent = prediction;
-      predictionResult.style.display = 'block';
-    }
-  </script>
 
 </body>
 </html>
